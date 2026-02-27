@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keizen Academy | Clash of Clans Clan</title>
+  <meta name="description" content="Join Keizen Academy (#2QQ2V0QVC) – International Clash of Clans clan. Silver League • Level 5 • Anyone can join! TH11+ required." />
+  <meta property="og:title" content="Keizen Academy – Clash of Clans" />
+  <meta property="og:description" content="Join our international CoC clan! Silver League, Level 5. Active wars, Discord community, and a great team." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="https://api-assets.clashofclans.com/badges/70/xWPgFR7snasZfJOx7Z3Txqov1SWxZCUYWoGQABAKDw8.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Vuetify 3 -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.4.0/dist/vuetify.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css" rel="stylesheet" />
+
+  <style>
+    /* ───────────────────────── BASE ───────────────────────── */
+    :root {
+      --gold: #ffd700;
+      --gold-dark: #b8860b;
+      --coc-green: #5cb85c;
+      --discord: #5865F2;
+      --surface: #13131f;
+      --surface-light: #1c1c30;
+      --bg: #0a0a14;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6,.heading { font-family: 'Cinzel', serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+
+    /* ───────────────────── HERO SECTION ───────────────────── */
+    .hero-banner {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(-45deg, #0a0a14, #1a1a2e, #0d2818, #1a0d2e);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,215,0,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(92,184,92,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(88,101,242,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: orbFloat 20s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 400px; height: 400px; background: var(--gold); top: -10%; left: -5%; }
+    .orb-2 { width: 350px; height: 350px; background: var(--coc-green); bottom: -10%; right: -5%; animation-delay: -7s; }
+    .orb-3 { width: 300px; height: 300px; background: var(--discord); top: 40%; right: 20%; animation-delay: -14s; }
+    @keyframes orbFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -30px) scale(1.15); }
+    }
+
+    .hero-content { position: relative; z-index: 2; padding: 1rem; }
+    .clan-badge {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      background: rgba(255,215,0,0.08);
+      font-size: 3rem;
+      box-shadow: 0 0 40px rgba(255,215,0,0.2);
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), #fff8dc, var(--gold));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: none;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .hero-tag {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      color: #aaa;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badges { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    /* ─────────────────── SECTION STYLING ─────────────────── */
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), #fff8dc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+    .section-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 3rem;
+    }
+    section { padding: 5rem 0; position: relative; }
+    section:nth-child(even) { background: rgba(255,255,255,0.01); }
+
+    /* ─────────────────── STAT CARDS ─────────────────────── */
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 0.25rem;
+    }
+
+    /* ─────────────────── INFO CARDS ──────────────────────── */
+    .info-card {
+      background: var(--surface-light) !important;
+      border: 1px solid rgba(255,215,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(255,215,0,0.1);
+      border-color: rgba(255,215,0,0.3);
+    }
+
+    /* ─────────────────── LEADER CARDS ────────────────────── */
+    .leader-card {
+      background: var(--surface-light) !important;
+      border: 2px solid rgba(255,215,0,0.15);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .leader-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(255,215,0,0.15);
+      border-color: var(--gold);
+    }
+    .leader-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(255,215,0,0.08), var(--surface-light)) !important;
+    }
+    .leader-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1rem;
+      border: 3px solid var(--gold);
+    }
+    .leader-avatar.king { background: linear-gradient(135deg, #b8860b, #ffd700); }
+    .leader-avatar.co { background: linear-gradient(135deg, #1a237e, #5865F2); }
+
+    /* ─────────────────── HERO CARDS ──────────────────────── */
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .hero-card {
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s, box-shadow 0.35s;
+      cursor: default;
+    }
+    .hero-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      filter: blur(40px);
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .hero-card > * { position: relative; z-index: 1; }
+    .hero-emoji {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+    .hero-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #fff; }
+    .hero-card p  { font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+    /* ─────────────────── RULES ───────────────────────────── */
+    .rules-panel {
+      background: var(--surface-light) !important;
+      border: 1px solid rgba(255,215,0,0.08) !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* ─────────────────── MEMBERS TABLE ───────────────────── */
+    .member-table-wrap {
+      background: var(--surface-light);
+      border-radius: 12px;
+      border: 1px solid rgba(255,215,0,0.08);
+      overflow-x: auto;
+    }
+    .members-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .members-table thead th {
+      padding: 12px 14px;
+      text-align: left;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255,215,0,0.12);
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      background: var(--surface-light);
+    }
+    .members-table tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      color: #ccc;
+      white-space: nowrap;
+    }
+    .member-row { transition: background 0.2s; }
+    .member-row:hover { background: rgba(255,215,0,0.04); }
+    .role-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .text-center { text-align: center !important; }
+    @media (max-width: 768px) {
+      .hide-tablet { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hide-mobile { display: none; }
+      .members-table { font-size: 0.8rem; }
+      .members-table thead th, .members-table tbody td { padding: 8px 10px; }
+    }
+
+    /* ─────────────────── JOIN SECTION ────────────────────── */
+    .join-section {
+      background: linear-gradient(135deg, rgba(255,215,0,0.04), rgba(88,101,242,0.04));
+      border-top: 1px solid rgba(255,215,0,0.1);
+      border-bottom: 1px solid rgba(255,215,0,0.1);
+    }
+    .join-card {
+      background: var(--surface-light) !important;
+      border: 2px solid rgba(255,215,0,0.12);
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .join-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+    .join-card.discord-card { border-color: rgba(88,101,242,0.3); }
+    .join-card.discord-card:hover { border-color: var(--discord); box-shadow: 0 12px 30px rgba(88,101,242,0.2); }
+    .join-card.clan-card { border-color: rgba(92,184,92,0.3); }
+    .join-card.clan-card:hover { border-color: var(--coc-green); box-shadow: 0 12px 30px rgba(92,184,92,0.2); }
+
+    /* ─────────────────── FLOATING DISCORD ────────────────── */
+    .discord-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      animation: discordPulse 2.5s ease-in-out infinite;
+    }
+    .discord-float .v-btn { box-shadow: 0 6px 24px rgba(88,101,242,0.5) !important; }
+    @keyframes discordPulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
+    }
+
+    /* ─────────────────── MISC / ANIMATIONS ───────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gold-text {
+      color: var(--gold) !important;
+    }
+    a { text-decoration: none; }
+
+    /* ─────────────────── CLAN PROFILE IMAGE ──────────────── */
+    .clan-profile-showcase {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(255,215,0,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,215,0,0.08);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .clan-profile-showcase:hover {
+      transform: scale(1.01);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 60px rgba(255,215,0,0.12);
+    }
+    .clan-profile-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .clan-profile-showcase .profile-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    }
+    .clan-profile-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,215,0,0.15);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ─────────────────── HERO IMAGES ─────────────────────── */
+    .hero-img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 1rem;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+      transition: transform 0.35s;
+    }
+    .hero-card:hover .hero-img {
+      transform: scale(1.1) rotate(-2deg);
+    }
+    .hero-emoji-fallback {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    /* ─────────────────── RESPONSIVE ──────────────────────── */
+    @media (max-width: 600px) {
+      .hero-title { letter-spacing: 0; }
+      .stat-number { font-size: 2rem; }
+      .hero-gallery { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .hero-card { padding: 1.25rem 1rem; }
+      .hero-emoji { font-size: 2.5rem; }
+      .hero-img { width: 90px; height: 90px; }
+      .discord-float { bottom: 16px; right: 16px; }
+      .clan-profile-showcase { margin: 0 auto 2rem; border-radius: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <!-- =================== APP BAR =================== -->
+      <v-app-bar color="rgba(10,10,20,0.92)" flat density="comfortable" scroll-behavior="elevate" style="backdrop-filter:blur(12px)">
+        <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>
+          <span class="heading gold-text" style="font-size:1.25rem;letter-spacing:2px">⚔️ KEIZEN ACADEMY</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <template v-for="s in sections" :key="s.id">
+          <v-btn variant="text" class="d-none d-md-inline-flex" :href="'#' + s.id" style="text-transform:none;letter-spacing:1px">
+            {{ s.label }}
+          </v-btn>
+        </template>
+        <v-btn icon href="https://discord.gg/zy3zUxjyeH" target="_blank" color="#5865F2" class="ml-2">
+          <v-icon>mdi-discord</v-icon>
+        </v-btn>
+      </v-app-bar>
+
+      <!-- Mobile Drawer -->
+      <v-navigation-drawer v-model="drawer" temporary color="#0f0f1a">
+        <v-list nav>
+          <v-list-item v-for="s in sections" :key="s.id" :href="'#' + s.id" @click="drawer=false">
+            <template v-slot:prepend><v-icon>{{ s.icon }}</v-icon></template>
+            <v-list-item-title>{{ s.label }}</v-list-item-title>
+          </v-list-item>
+          <v-divider class="my-2"></v-divider>
+          <v-list-item href="https://discord.gg/zy3zUxjyeH" target="_blank">
+            <template v-slot:prepend><v-icon color="#5865F2">mdi-discord</v-icon></template>
+            <v-list-item-title>Join Discord</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-main>
+        <!-- =================== HERO BANNER =================== -->
+        <div class="hero-banner" id="home">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+
+          <div class="hero-content">
+            <h1 class="hero-title">KEIZEN ACADEMY</h1>
+            <p class="hero-tag">#2QQ2V0QVC</p>
+
+            <div class="hero-badges">
+              <v-chip color="#b8860b" variant="elevated" size="small"><v-icon start size="small">mdi-trophy</v-icon> Silver League</v-chip>
+              <v-chip color="#1a237e" variant="elevated" size="small"><v-icon start size="small">mdi-shield-star</v-icon> Level 5</v-chip>
+              <v-chip color="#2e7d32" variant="elevated" size="small"><v-icon start size="small">mdi-earth</v-icon> International</v-chip>
+              <v-chip color="#4e342e" variant="elevated" size="small"><v-icon start size="small">mdi-castle</v-icon> TH11+ Required</v-chip>
+            </div>
+
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+              <v-btn color="#5cb85c" size="large" rounded="pill" href="https://link.clashofclans.com/en?action=OpenClanProfile&tag=2QQ2V0QVC" target="_blank" elevation="8">
+                <v-icon start>mdi-sword-cross</v-icon> Join Clan
+              </v-btn>
+              <v-btn color="#5865F2" size="large" rounded="pill" href="https://discord.gg/zy3zUxjyeH" target="_blank" elevation="8">
+                <v-icon start>mdi-discord</v-icon> Join Discord
+              </v-btn>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================== STATS =================== -->
+        <section id="stats" style="padding:3rem 0;background:var(--surface)">
+          <v-container>
+            <v-row>
+              <v-col cols="6" md="3" v-for="s in stats" :key="s.label">
+                <div class="stat-card">
+                  <v-icon :color="s.color" size="32" class="mb-2">{{ s.icon }}</v-icon>
+                  <div class="stat-number">{{ s.value }}</div>
+                  <div class="stat-label">{{ s.label }}</div>
+                </div>
+              </v-col>
+            </v-row>
+
+            <!-- War Stats Bar -->
+            <v-row justify="center" class="mt-4">
+              <v-col cols="12" md="8">
+                <v-card class="pa-5 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1)">
+                  <div class="d-flex align-center justify-space-between mb-3">
+                    <div class="d-flex align-center">
+                      <v-icon color="#ffd700" class="mr-2">mdi-sword-cross</v-icon>
+                      <span class="heading gold-text" style="font-size:1rem;letter-spacing:1px">WAR PERFORMANCE</span>
+                    </div>
+                    <span style="color:#ffd700;font-weight:700;font-size:1.2rem">{{ totalWarStars.toLocaleString() }} ⭐</span>
+                  </div>
+                  <v-progress-linear :model-value="avgWarStarsPercent" color="#ffd700" bg-color="rgba(255,255,255,0.05)" height="12" rounded></v-progress-linear>
+                  <v-row class="mt-3">
+                    <v-col cols="4" class="text-center">
+                      <div style="color:#ffd700;font-weight:700;font-size:1.1rem">{{ avgWarStars }}</div>
+                      <div style="color:#666;font-size:0.7rem">Avg Stars/Member</div>
+                    </v-col>
+                    <v-col cols="4" class="text-center">
+                      <div style="color:#f44336;font-weight:700;font-size:1.1rem">{{ topWarrior.warStars.toLocaleString() }}</div>
+                      <div style="color:#666;font-size:0.7rem">Top: {{ topWarrior.name }}</div>
+                    </v-col>
+                    <v-col cols="4" class="text-center">
+                      <div style="color:#4CAF50;font-weight:700;font-size:1.1rem">{{ membersWithStars }}/{{ allMembers.length }}</div>
+                      <div style="color:#666;font-size:0.7rem">Active Warriors</div>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <!-- =================== CLAN PROFILE SCREENSHOT =================== -->
+        <section id="profile" style="padding-bottom:2rem">
+          <v-container>
+            <h2 class="section-title">🏰 Our Clan Profile</h2>
+            <p class="section-subtitle">Straight from Clash of Clans — this is who we are</p>
+            <div class="section-divider"></div>
+
+            <div class="clan-profile-showcase">
+              <img src="assets/clan-profile.jpeg" alt="Keizen Academy - Clash of Clans Clan Profile" loading="lazy" />
+              <div class="profile-overlay">
+                <span class="clan-profile-label">📸 Live Clan Profile — #2QQ2V0QVC</span>
+              </div>
+            </div>
+          </v-container>
+        </section>
+
+        <!-- =================== ABOUT =================== -->
+        <section id="about">
+          <v-container>
+            <h2 class="section-title">Clan Details</h2>
+            <p class="section-subtitle">Everything you need to know about Keizen Academy</p>
+            <div class="section-divider"></div>
+
+            <v-row>
+              <v-col cols="12" sm="6" md="4" v-for="info in clanDetails" :key="info.label">
+                <v-card class="info-card pa-5 rounded-xl" flat>
+                  <div class="d-flex align-center mb-3">
+                    <v-icon :color="info.color" size="28" class="mr-3">{{ info.icon }}</v-icon>
+                    <span style="color:#888;font-size:0.85rem">{{ info.label }}</span>
+                  </div>
+                  <div style="font-size:1.25rem;font-weight:600;color:#fff">{{ info.value }}</div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <!-- =================== LEADERSHIP =================== -->
+        <section id="leadership">
+          <v-container>
+            <h2 class="section-title">⚔️ Leadership</h2>
+            <p class="section-subtitle">The warriors who lead Keizen Academy</p>
+            <div class="section-divider"></div>
+
+            <!-- Leader -->
+            <v-row justify="center" class="mb-8">
+              <v-col cols="12" sm="8" md="5">
+                <v-card class="leader-card featured pa-6 rounded-xl text-center" flat>
+                  <v-chip color="#ffd700" variant="elevated" size="small" class="mb-4">👑 LEADER</v-chip>
+                  <div class="leader-avatar king mx-auto">👑</div>
+                  <h3 class="heading gold-text mb-1" style="font-size:1.4rem">{{ leader.name }}</h3>
+                  <p style="color:#888;font-size:0.85rem;margin-bottom:1rem">{{ leader.tag }}</p>
+                  <div class="d-flex justify-center gap-2 flex-wrap" style="gap:8px">
+                    <v-chip size="x-small" color="#4e342e"><v-icon start size="x-small">mdi-castle</v-icon> TH{{ leader.th }}</v-chip>
+                    <v-chip size="x-small" color="#b71c1c"><v-icon start size="x-small">mdi-star</v-icon> {{ leader.warStars }} Stars</v-chip>
+                    <v-chip size="x-small" color="#1a237e"><v-icon start size="x-small">mdi-trophy</v-icon> {{ leader.trophies }}</v-chip>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+
+            <!-- Co-Leaders -->
+            <h4 class="heading text-center mb-4" style="color:var(--gold);font-size:1.1rem;letter-spacing:2px">CO-LEADERS</h4>
+            <v-row justify="center">
+              <v-col cols="12" sm="6" md="4" v-for="cl in coLeaders" :key="cl.tag">
+                <v-card class="leader-card pa-5 rounded-xl text-center" flat>
+                  <div class="leader-avatar co mx-auto">⚔️</div>
+                  <h3 class="heading mb-1" style="font-size:1.1rem;color:#ccc">{{ cl.name }}</h3>
+                  <p style="color:#666;font-size:0.75rem;margin-bottom:0.75rem">{{ cl.tag }}</p>
+                  <div class="d-flex justify-center flex-wrap" style="gap:6px">
+                    <v-chip size="x-small" color="#4e342e">TH{{ cl.th }}</v-chip>
+                    <v-chip size="x-small" color="#b71c1c">{{ cl.warStars }}⭐</v-chip>
+                    <v-chip size="x-small" color="#1a237e">{{ cl.donations }}🎁</v-chip>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <!-- =================== HEROES GALLERY =================== -->
+        <section id="heroes" style="background:linear-gradient(180deg, var(--bg), var(--surface), var(--bg))">
+          <v-container>
+            <h2 class="section-title">🏰 Heroes of Keizen</h2>
+            <p class="section-subtitle">Our strongest heroes across the clan</p>
+            <div class="section-divider"></div>
+
+            <div class="hero-gallery">
+              <div v-for="h in heroes" :key="h.name" class="hero-card" :style="{background: h.gradient, boxShadow: '0 8px 30px ' + h.shadow}">
+                <img v-if="h.img" :src="h.img" :alt="h.name" class="hero-img" />
+                <span v-else class="hero-emoji-fallback">{{ h.emoji }}</span>
+                <h3>{{ h.name }}</h3>
+                <v-chip size="x-small" :color="h.chipColor" class="my-2">Clan Max: Lv.{{ h.clanMax }}</v-chip>
+                <p>{{ h.desc }}</p>
+              </div>
+            </div>
+          </v-container>
+        </section>
+
+        <!-- =================== RULES =================== -->
+        <section id="rules">
+          <v-container style="max-width:900px">
+            <h2 class="section-title">📜 Clan Rules</h2>
+            <p class="section-subtitle">Follow these rules to stay in the clan</p>
+            <div class="section-divider"></div>
+
+            <v-expansion-panels variant="accordion">
+              <v-expansion-panel v-for="rule in rules" :key="rule.title" class="rules-panel rounded-lg mb-2" bg-color="transparent">
+                <v-expansion-panel-title>
+                  <div class="d-flex align-center">
+                    <v-icon :color="rule.color" class="mr-3">{{ rule.icon }}</v-icon>
+                    <span class="heading" style="font-size:1rem">{{ rule.title }}</span>
+                  </div>
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <v-list density="compact" bg-color="transparent">
+                    <v-list-item v-for="(item, i) in rule.items" :key="i" :title="item" prepend-icon="mdi-chevron-right" style="color:#ccc"></v-list-item>
+                  </v-list>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </v-container>
+        </section>
+
+        <!-- =================== MEMBERS =================== -->
+        <section id="members">
+          <v-container>
+            <h2 class="section-title">👥 Clan Members</h2>
+            <p class="section-subtitle">{{ allMembers.length }} warriors strong</p>
+            <div class="section-divider"></div>
+
+            <v-text-field
+              v-model="memberSearch"
+              prepend-inner-icon="mdi-magnify"
+              label="Search members..."
+              variant="outlined"
+              density="compact"
+              clearable
+              hide-details
+              class="mb-4"
+              style="max-width:400px;margin:0 auto"
+              base-color="#ffd700"
+              color="#ffd700"
+            ></v-text-field>
+
+            <!-- Role filter chips -->
+            <div class="d-flex justify-center flex-wrap mb-4" style="gap:8px">
+              <v-chip v-for="r in roleFilters" :key="r.value"
+                :color="r.color"
+                :variant="selectedRole === r.value ? 'elevated' : 'outlined'"
+                @click="selectedRole = r.value"
+                size="small">
+                {{ r.label }}
+              </v-chip>
+            </div>
+
+            <div class="member-table-wrap">
+              <table class="members-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th class="text-center">TH</th>
+                    <th class="text-center hide-mobile">🏆</th>
+                    <th class="text-center hide-mobile">⭐</th>
+                    <th class="text-center hide-mobile">Atk W</th>
+                    <th class="text-center hide-tablet">🎁</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(m, idx) in filteredMembers" :key="m.tag" class="member-row">
+                    <td>{{ idx + 1 }}</td>
+                    <td style="font-weight:500">{{ m.name }}</td>
+                    <td>
+                      <span class="role-badge" :style="{background: getRoleColor(m.role)}">{{ m.role }}</span>
+                    </td>
+                    <td class="text-center">{{ m.th }}</td>
+                    <td class="text-center hide-mobile">{{ m.trophies.toLocaleString() }}</td>
+                    <td class="text-center hide-mobile">{{ m.warStars }}</td>
+                    <td class="text-center hide-mobile">{{ m.attackWins.toLocaleString() }}</td>
+                    <td class="text-center hide-tablet">{{ m.donations }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </v-container>
+        </section>
+
+        <!-- =================== JOIN US =================== -->
+        <section id="join" class="join-section" style="padding:6rem 0">
+          <v-container>
+            <h2 class="section-title">🤝 Join Keizen Academy</h2>
+            <p class="section-subtitle">Become part of our growing international clan family</p>
+            <div class="section-divider"></div>
+
+            <v-row justify="center">
+              <!-- Join Clan Card -->
+              <v-col cols="12" sm="6" md="5">
+                <v-card class="join-card clan-card pa-8 rounded-xl" flat>
+                  <div style="font-size:3.5rem;margin-bottom:1rem">⚔️</div>
+                  <h3 class="heading mb-2" style="color:var(--coc-green);font-size:1.3rem">Join the Clan</h3>
+                  <p style="color:#888;font-size:0.9rem;margin-bottom:1.5rem">
+                    Open Clash of Clans and join us directly. TH11+ required. Anyone can join!
+                  </p>
+                  <v-btn color="#5cb85c" size="large" rounded="pill" block
+                    href="https://link.clashofclans.com/en?action=OpenClanProfile&tag=2QQ2V0QVC" target="_blank" elevation="4">
+                    <v-icon start>mdi-open-in-new</v-icon> Open in CoC
+                  </v-btn>
+                  <p style="color:#555;font-size:0.75rem;margin-top:1rem">Tag: #2QQ2V0QVC</p>
+                </v-card>
+              </v-col>
+
+              <!-- Join Discord Card -->
+              <v-col cols="12" sm="6" md="5">
+                <v-card class="join-card discord-card pa-8 rounded-xl" flat>
+                  <div style="font-size:3.5rem;margin-bottom:1rem">💬</div>
+                  <h3 class="heading mb-2" style="color:var(--discord);font-size:1.3rem">Join Discord</h3>
+                  <p style="color:#888;font-size:0.9rem;margin-bottom:1.5rem">
+                    Chat with us, get war strategies, and stay connected with the clan community!
+                  </p>
+                  <v-btn color="#5865F2" size="large" rounded="pill" block
+                    href="https://discord.gg/zy3zUxjyeH" target="_blank" elevation="4">
+                    <v-icon start>mdi-discord</v-icon> Join Discord Server
+                  </v-btn>
+                  <p style="color:#555;font-size:0.75rem;margin-top:1rem">discord.gg/zy3zUxjyeH</p>
+                </v-card>
+              </v-col>
+            </v-row>
+
+            <!-- Requirements Summary -->
+            <v-card class="mt-8 pa-6 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1);max-width:700px;margin-left:auto;margin-right:auto">
+              <h4 class="heading gold-text text-center mb-4">📋 Requirements to Join</h4>
+              <v-row>
+                <v-col cols="6" sm="3" class="text-center" v-for="req in requirements" :key="req.label">
+                  <v-icon :color="req.color" size="28">{{ req.icon }}</v-icon>
+                  <div style="font-weight:600;color:#fff;font-size:0.95rem;margin-top:4px">{{ req.value }}</div>
+                  <div style="color:#666;font-size:0.7rem">{{ req.label }}</div>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-container>
+        </section>
+
+        <!-- =================== FOOTER =================== -->
+        <v-footer color="#080810" class="pa-8" style="border-top:1px solid rgba(255,215,0,0.08)">
+          <v-container>
+            <v-row align="center">
+              <v-col cols="12" md="6" class="text-center text-md-start">
+                <span class="heading gold-text" style="font-size:1.1rem;letter-spacing:2px">⚔️ KEIZEN ACADEMY</span>
+                <p style="color:#555;font-size:0.8rem;margin-top:4px">#2QQ2V0QVC • International • Silver League</p>
+              </v-col>
+              <v-col cols="12" md="6" class="text-center text-md-end">
+                <v-btn icon variant="text" href="https://discord.gg/zy3zUxjyeH" target="_blank" class="mr-1"><v-icon color="#5865F2">mdi-discord</v-icon></v-btn>
+                <v-btn icon variant="text" href="https://link.clashofclans.com/en?action=OpenClanProfile&tag=2QQ2V0QVC" target="_blank"><v-icon color="#5cb85c">mdi-sword-cross</v-icon></v-btn>
+              </v-col>
+            </v-row>
+            <v-divider class="my-4" style="border-color:rgba(255,215,0,0.06)"></v-divider>
+            <p class="text-center" style="color:#444;font-size:0.7rem">
+              © 2026 Keizen Academy. This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell.
+            </p>
+          </v-container>
+        </v-footer>
+      </v-main>
+
+      <!-- =================== FLOATING DISCORD =================== -->
+      <div class="discord-float">
+        <v-btn color="#5865F2" size="large" rounded="pill" elevation="10"
+          href="https://discord.gg/zy3zUxjyeH" target="_blank">
+          <v-icon start>mdi-discord</v-icon>
+          <span class="d-none d-sm-inline">Join Discord</span>
+        </v-btn>
+      </div>
+
+    </v-app>
+  </div>
+
+  <!-- Vue 3 + Vuetify 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.4.0/dist/vuetify.min.js"></script>
+
+  <script>
+    const { createApp } = Vue;
+    const { createVuetify } = Vuetify;
+
+    const vuetify = createVuetify({
+      theme: {
+        defaultTheme: 'dark',
+        themes: {
+          dark: {
+            colors: {
+              primary: '#FFD700',
+              secondary: '#5cb85c',
+              accent: '#5865F2',
+              background: '#0a0a14',
+              surface: '#13131f',
+            }
+          }
+        }
+      }
+    });
+
+    createApp({
+      data() {
+        return {
+          drawer: false,
+          memberSearch: '',
+          selectedRole: 'All',
+
+          sections: [
+            { id: 'home', label: 'Home', icon: 'mdi-home' },
+            { id: 'about', label: 'About', icon: 'mdi-information' },
+            { id: 'leadership', label: 'Leadership', icon: 'mdi-crown' },
+            { id: 'heroes', label: 'Heroes', icon: 'mdi-sword' },
+            { id: 'rules', label: 'Rules', icon: 'mdi-gavel' },
+            { id: 'members', label: 'Members', icon: 'mdi-account-group' },
+            { id: 'join', label: 'Join Us', icon: 'mdi-handshake' },
+          ],
+
+          roleFilters: [
+            { label: 'All', value: 'All', color: '#ffd700' },
+            { label: 'Leader', value: 'Leader', color: '#ffd700' },
+            { label: 'Co-Leader', value: 'Co-Leader', color: '#5865F2' },
+            { label: 'Elder', value: 'Elder', color: '#4CAF50' },
+            { label: 'Member', value: 'Member', color: '#78909C' },
+          ],
+
+          clanDetails: [
+            { label: 'Clan War League', value: 'Silver League', icon: 'mdi-trophy', color: '#b8860b' },
+            { label: 'Clan Location', value: 'International', icon: 'mdi-earth', color: '#4FC3F7' },
+            { label: 'Chat Language', value: 'English', icon: 'mdi-translate', color: '#AB47BC' },
+            { label: 'Clan Type', value: 'Anyone Can Join', icon: 'mdi-door-open', color: '#66BB6A' },
+            { label: 'Required League', value: 'Unranked', icon: 'mdi-shield-outline', color: '#78909C' },
+            { label: 'Required Town Hall', value: 'Level 11+', icon: 'mdi-castle', color: '#8D6E63' },
+            { label: 'Builder Base League', value: 'Wood V', icon: 'mdi-hammer-wrench', color: '#A1887F' },
+            { label: 'Clan Level', value: 'Level 5', icon: 'mdi-star-circle', color: '#ffd700' },
+            { label: 'Discord Server', value: 'Active Community', icon: 'mdi-discord', color: '#5865F2' },
+          ],
+
+          heroes: [
+            {
+              name: 'Barbarian King',
+              emoji: '⚔️',
+              img: 'assets/Barbarian_King_info.webp',
+              desc: 'The iron-fisted King leads his army with rage and fury into battle.',
+              clanMax: 70,
+              gradient: 'linear-gradient(135deg, #4a2800 0%, #b8860b 50%, #4a2800 100%)',
+              shadow: 'rgba(184,134,11,0.25)',
+              chipColor: '#b8860b',
+            },
+            {
+              name: 'Archer Queen',
+              emoji: '🏹',
+              img: 'assets/Archer_Queen_info.webp',
+              desc: 'The deadly Queen rains arrows of destruction from a distance.',
+              clanMax: 69,
+              gradient: 'linear-gradient(135deg, #2a0845 0%, #6a1b9a 50%, #2a0845 100%)',
+              shadow: 'rgba(106,27,154,0.25)',
+              chipColor: '#7B1FA2',
+            },
+            {
+              name: 'Grand Warden',
+              emoji: '🔮',
+              img: 'assets/Grand_Warden_info.webp',
+              desc: 'The wise guardian protects and empowers allies on the battlefield.',
+              clanMax: 57,
+              gradient: 'linear-gradient(135deg, #01364a 0%, #0288D1 50%, #01364a 100%)',
+              shadow: 'rgba(2,136,209,0.25)',
+              chipColor: '#0288D1',
+            },
+            {
+              name: 'Royal Champion',
+              emoji: '⚡',
+              img: 'assets/Royal_Champion_info.webp',
+              desc: 'The fierce champion seeks out and destroys enemy defenses.',
+              clanMax: 32,
+              gradient: 'linear-gradient(135deg, #1b3a00 0%, #388E3C 50%, #1b3a00 100%)',
+              shadow: 'rgba(56,142,60,0.25)',
+              chipColor: '#388E3C',
+            },
+            {
+              name: 'Minion Prince',
+              emoji: '😈',
+              img: null,
+              desc: 'The dark royal prince commands terrifying minion armies from above.',
+              clanMax: 54,
+              gradient: 'linear-gradient(135deg, #220022 0%, #880E4F 50%, #220022 100%)',
+              shadow: 'rgba(136,14,79,0.25)',
+              chipColor: '#880E4F',
+            },
+            {
+              name: 'Dragon Duke',
+              emoji: '🐉',
+              img: 'assets/Dragon_Duke_info.webp',
+              desc: 'The mighty dragon lord breathes devastation upon enemy bases.',
+              clanMax: 25,
+              gradient: 'linear-gradient(135deg, #3e0000 0%, #d32f2f 50%, #3e0000 100%)',
+              shadow: 'rgba(211,47,47,0.25)',
+              chipColor: '#d32f2f',
+            },
+          ],
+
+          rules: [
+            {
+              title: '🕒 Activity Rules',
+              icon: 'mdi-clock-outline',
+              color: '#FFD700',
+              items: [
+                '2 Days Inactivity → Demoted to Member',
+                '4 Days Inactivity → Kicked from Server',
+                'If you will be inactive, inform staff beforehand to avoid punishment.',
+              ]
+            },
+            {
+              title: '⚔️ War Rules',
+              icon: 'mdi-sword-cross',
+              color: '#f44336',
+              items: [
+                'Missing War Attack → Automatic Kick',
+                'If opted-in for war, you MUST use both attacks.',
+                'Follow assigned targets from leadership.',
+                'No random attacks without strategy approval.',
+              ]
+            },
+            {
+              title: '🚫 Behavior Rules',
+              icon: 'mdi-account-alert',
+              color: '#FF9800',
+              items: [
+                'No spamming (text, emojis, links, pings).',
+                'No offensive language, hate speech, or toxicity.',
+                'No unnecessary drama or arguments.',
+                'Respect all members and staff.',
+              ]
+            },
+            {
+              title: '🔗 Content Rules',
+              icon: 'mdi-link-variant',
+              color: '#2196F3',
+              items: [
+                'No NSFW content.',
+                'No self-promotion without staff permission.',
+                'Use correct channels for discussions.',
+                'English / Bangla only.',
+              ]
+            },
+            {
+              title: '🛡️ Staff Authority',
+              icon: 'mdi-shield-account',
+              color: '#9C27B0',
+              items: [
+                'Staff decisions are final.',
+                'Breaking rules may result in warning, mute, demotion, or kick.',
+                'Rejoining after kick requires staff approval.',
+              ]
+            },
+          ],
+
+          requirements: [
+            { label: 'Town Hall', value: 'TH 11+', icon: 'mdi-castle', color: '#8D6E63' },
+            { label: 'League', value: 'Unranked', icon: 'mdi-shield-outline', color: '#78909C' },
+            { label: 'Type', value: 'Open', icon: 'mdi-door-open', color: '#66BB6A' },
+            { label: 'Language', value: 'English', icon: 'mdi-translate', color: '#AB47BC' },
+          ],
+
+          allMembers: [
+            { rank:1, name:'Danko', tag:'#LL00RYR2C', th:13, role:'Co-Leader', trophies:223, warStars:732, attackWins:0, defenseWins:0, donations:249 },
+            { rank:2, name:'BHOi', tag:'#GQRL2Y9LU', th:13, role:'Elder', trophies:83, warStars:21, attackWins:0, defenseWins:0, donations:375 },
+            { rank:3, name:'EllieDuh', tag:'#GU9Q88Y0U', th:11, role:'Co-Leader', trophies:305, warStars:181, attackWins:0, defenseWins:0, donations:144 },
+            { rank:4, name:'Nishant', tag:'#R802QC009', th:12, role:'Elder', trophies:68, warStars:67, attackWins:0, defenseWins:0, donations:0 },
+            { rank:5, name:'eL\u2022guapito', tag:'#QGCYRCGYY', th:10, role:'Member', trophies:340, warStars:78, attackWins:0, defenseWins:0, donations:40 },
+            { rank:6, name:'566', tag:'#R2VY0Q8J8', th:10, role:'Elder', trophies:333, warStars:80, attackWins:0, defenseWins:0, donations:129 },
+            { rank:7, name:'Ryan', tag:'#GVVPU0P8Y', th:12, role:'Elder', trophies:261, warStars:68, attackWins:0, defenseWins:0, donations:0 },
+            { rank:8, name:'joemamaqu', tag:'#G0JQGCRPG', th:10, role:'Member', trophies:88, warStars:6, attackWins:0, defenseWins:0, donations:0 },
+            { rank:9, name:'Skibidi67', tag:'#R20P0LCRJ', th:11, role:'Elder', trophies:282, warStars:68, attackWins:0, defenseWins:0, donations:0 },
+            { rank:10, name:'Gagan', tag:'#GYGLLUGGU', th:10, role:'Member', trophies:214, warStars:112, attackWins:0, defenseWins:0, donations:0 },
+            { rank:11, name:'Yogi', tag:'#YJPVR0U8R', th:11, role:'Member', trophies:203, warStars:473, attackWins:0, defenseWins:0, donations:0 },
+            { rank:12, name:'Ozil', tag:'#2LVQCU82G', th:11, role:'Elder', trophies:174, warStars:222, attackWins:0, defenseWins:0, donations:1 },
+            { rank:13, name:'Oneday', tag:'#GGRGV0R8R', th:10, role:'Elder', trophies:136, warStars:86, attackWins:0, defenseWins:0, donations:26 },
+            { rank:14, name:'Akagami', tag:'#G2U928YJ8', th:10, role:'Elder', trophies:111, warStars:65, attackWins:0, defenseWins:0, donations:0 },
+            { rank:15, name:'Keed_Whanji', tag:'#R809UU2RG', th:10, role:'Elder', trophies:28, warStars:14, attackWins:0, defenseWins:0, donations:0 },
+            { rank:16, name:'SANKET', tag:'#GUVYYVGU9', th:11, role:'Co-Leader', trophies:13, warStars:17, attackWins:0, defenseWins:0, donations:198 },
+            { rank:17, name:'MegRarri', tag:'#R8P0UG20P', th:10, role:'Member', trophies:176, warStars:4, attackWins:0, defenseWins:0, donations:97 },
+            { rank:18, name:'Acky', tag:'#LY0VYCJYV', th:10, role:'Elder', trophies:128, warStars:1, attackWins:0, defenseWins:0, donations:0 },
+            { rank:19, name:'Ancho', tag:'#G0YRPPCLP', th:10, role:'Elder', trophies:0, warStars:32, attackWins:0, defenseWins:0, donations:21 },
+            { rank:20, name:'clintmen', tag:'#GQ0C280UU', th:10, role:'Elder', trophies:0, warStars:8, attackWins:0, defenseWins:0, donations:0 },
+            { rank:21, name:'m7md mandili', tag:'#29QPRV2C', th:10, role:'Member', trophies:400, warStars:311, attackWins:0, defenseWins:0, donations:47 },
+            { rank:22, name:'johir6090', tag:'#GCJ8ULYU9', th:10, role:'Elder', trophies:256, warStars:47, attackWins:0, defenseWins:0, donations:35 },
+            { rank:23, name:'Abhishek', tag:'#R0VYCQUVG', th:10, role:'Co-Leader', trophies:240, warStars:1, attackWins:0, defenseWins:0, donations:0 },
+            { rank:24, name:'sher', tag:'#GJ8G20CLG', th:10, role:'Member', trophies:182, warStars:38, attackWins:0, defenseWins:0, donations:0 },
+            { rank:25, name:'NAI KDMV', tag:'#G8Y9JVQ0P', th:11, role:'Elder', trophies:99, warStars:69, attackWins:0, defenseWins:0, donations:0 },
+            { rank:26, name:'king of pranay', tag:'#PCL2RCQR8', th:10, role:'Member', trophies:85, warStars:119, attackWins:0, defenseWins:0, donations:0 },
+            { rank:27, name:'dredd', tag:'#GC9QVPP80', th:11, role:'Member', trophies:82, warStars:21, attackWins:0, defenseWins:0, donations:0 },
+            { rank:28, name:'Clashskeleton', tag:'#GL222CR0V', th:10, role:'Member', trophies:0, warStars:187, attackWins:0, defenseWins:0, donations:0 },
+            { rank:29, name:'SONIC PAPPA', tag:'#G008000G0', th:10, role:'Member', trophies:0, warStars:4, attackWins:0, defenseWins:0, donations:0 },
+            { rank:30, name:'Manny', tag:'#R0YURULCL', th:11, role:'Elder', trophies:316, warStars:6, attackWins:0, defenseWins:0, donations:66 },
+            { rank:31, name:'/\u00b0Keizen\u2122', tag:'#YGR8R9VLQ', th:10, role:'Leader', trophies:0, warStars:233, attackWins:0, defenseWins:0, donations:6 },
+            { rank:32, name:'Maruf4818', tag:'#GCVY8V998', th:10, role:'Member', trophies:0, warStars:33, attackWins:0, defenseWins:0, donations:0 },
+            { rank:33, name:'fayshal kaiser', tag:'#8UYUVUR09', th:15, role:'Elder', trophies:0, warStars:1356, attackWins:1390, defenseWins:0, donations:1916 },
+            { rank:34, name:'\u0110\u0113m\u01FF', tag:'#GLYVYV9RL', th:10, role:'Member', trophies:0, warStars:44, attackWins:0, defenseWins:0, donations:0 },
+            { rank:35, name:'jasim', tag:'#GJ89PG2PP', th:11, role:'Member', trophies:0, warStars:125, attackWins:0, defenseWins:0, donations:0 },
+            { rank:36, name:'jonsnow', tag:'#R0JCCLV8P', th:10, role:'Elder', trophies:0, warStars:0, attackWins:0, defenseWins:0, donations:0 },
+            { rank:37, name:'Diablus', tag:'#GU22JJPPP', th:11, role:'Co-Leader', trophies:0, warStars:33, attackWins:0, defenseWins:0, donations:21 },
+            { rank:38, name:'JosephRai', tag:'#R2J0YY2JC', th:11, role:'Elder', trophies:0, warStars:0, attackWins:0, defenseWins:0, donations:0 },
+            { rank:39, name:'stef', tag:'#GVPQRCJRR', th:11, role:'Elder', trophies:0, warStars:79, attackWins:0, defenseWins:0, donations:7 },
+            { rank:40, name:'Immanuel', tag:'#QR0Q9QQ89', th:10, role:'Member', trophies:0, warStars:19, attackWins:0, defenseWins:0, donations:1 },
+            { rank:41, name:'\u1d0b\u1d07\u026a\u1d22\u1d00\u0280\u1d21\u1d0f\u029f\u0262', tag:'#8QU0GYUJR', th:12, role:'Co-Leader', trophies:0, warStars:495, attackWins:802, defenseWins:0, donations:249 },
+          ],
+        }
+      },
+
+      computed: {
+        leader() {
+          return this.allMembers.find(m => m.role === 'Leader') || {};
+        },
+        coLeaders() {
+          return this.allMembers.filter(m => m.role === 'Co-Leader');
+        },
+        filteredMembers() {
+          let list = [...this.allMembers];
+          // Sort by role priority then rank
+          const rolePriority = { 'Leader': 0, 'Co-Leader': 1, 'Elder': 2, 'Member': 3 };
+          list.sort((a, b) => (rolePriority[a.role] || 9) - (rolePriority[b.role] || 9) || a.rank - b.rank);
+          if (this.selectedRole && this.selectedRole !== 'All') {
+            list = list.filter(m => m.role === this.selectedRole);
+          }
+          if (this.memberSearch) {
+            const q = this.memberSearch.toLowerCase();
+            list = list.filter(m => m.name.toLowerCase().includes(q) || m.tag.toLowerCase().includes(q));
+          }
+          return list;
+        },
+        stats() {
+          const m = this.allMembers;
+          const totalStars = m.reduce((s, x) => s + x.warStars, 0);
+          return [
+            { label: 'Members', value: m.length, icon: 'mdi-account-group', color: '#ffd700' },
+            { label: 'War Stars', value: totalStars.toLocaleString(), icon: 'mdi-star', color: '#f44336' },
+            { label: 'Total Donations', value: m.reduce((s, x) => s + x.donations, 0).toLocaleString(), icon: 'mdi-gift', color: '#4CAF50' },
+            { label: 'Avg TH Level', value: (m.reduce((s, x) => s + x.th, 0) / m.length).toFixed(1), icon: 'mdi-castle', color: '#8D6E63' },
+          ];
+        },
+        totalWarStars() {
+          return this.allMembers.reduce((s, x) => s + x.warStars, 0);
+        },
+        avgWarStars() {
+          return (this.totalWarStars / this.allMembers.length).toFixed(1);
+        },
+        avgWarStarsPercent() {
+          const max = Math.max(...this.allMembers.map(m => m.warStars));
+          return max > 0 ? (this.totalWarStars / (max * this.allMembers.length)) * 100 : 0;
+        },
+        topWarrior() {
+          return [...this.allMembers].sort((a, b) => b.warStars - a.warStars)[0] || { name: '-', warStars: 0 };
+        },
+        membersWithStars() {
+          return this.allMembers.filter(m => m.warStars > 0).length;
+        },
+      },
+
+      methods: {
+        getRoleColor(role) {
+          const map = { 'Leader': '#ffd700', 'Co-Leader': '#5865F2', 'Elder': '#4CAF50', 'Member': '#546E7A' };
+          return map[role] || '#546E7A';
+        }
+      }
+    }).use(vuetify).mount('#app');
+  </script>
+</body>
+</html>
