@@ -409,6 +409,50 @@
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
     }
 
+    /* ─────────────────── VISITOR COUNTER ──────────────────── */
+    .visitor-counter-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,215,0,0.04);
+      border: 1px solid rgba(255,215,0,0.1);
+      border-radius: 50px;
+      margin: 1rem auto 0;
+      max-width: 320px;
+      transition: all 0.3s ease;
+    }
+    .visitor-counter-wrap:hover {
+      border-color: rgba(255,215,0,0.25);
+      background: rgba(255,215,0,0.07);
+    }
+    .visitor-count-number {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffd700;
+      letter-spacing: 1px;
+      min-width: 30px;
+    }
+    .visitor-count-label {
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .visitor-dot {
+      width: 8px;
+      height: 8px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76,175,80,0.6); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(76,175,80,0); }
+    }
+
     /* ─────────────────── RESPONSIVE ──────────────────────── */
 
     .join-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
@@ -496,6 +540,10 @@
 
       /* Members search */
       .v-text-field { max-width: 100% !important; }
+
+      /* Visitor counter */
+      .visitor-counter-wrap { padding: 0.5rem 1rem; max-width: 250px; }
+      .visitor-count-number { font-size: 1.1rem; }
     }
 
     /* Very small screens */
@@ -889,6 +937,15 @@
                 <v-btn icon variant="text" href="https://link.clashofclans.com/en?action=OpenClanProfile&tag=2QQ2V0QVC" target="_blank"><v-icon color="#5cb85c">mdi-sword-cross</v-icon></v-btn>
               </v-col>
             </v-row>
+            <!-- Visitor Counter -->
+            <div class="visitor-counter-wrap">
+              <div class="visitor-dot"></div>
+              <div>
+                <span class="visitor-count-number">{{ visitorCount.toLocaleString() }}</span>
+              </div>
+              <span class="visitor-count-label">Total Visitors</span>
+            </div>
+
             <v-divider class="my-4" style="border-color:rgba(255,215,0,0.06)"></v-divider>
             <p class="text-center" style="color:#444;font-size:0.7rem">
               © 2026 Keizen Academy. This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell.
@@ -940,6 +997,7 @@
           drawer: false,
           memberSearch: '',
           selectedRole: 'All',
+          visitorCount: 0,
 
           sections: [
             { id: 'home', label: 'Home', icon: 'mdi-home' },
@@ -1192,10 +1250,42 @@
         },
       },
 
+      mounted() {
+        // Fetch & increment visitor counter
+        fetch('https://api.counterapi.dev/v1/keizen-academy-coc/website-visits/up')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.count) {
+              this.animateCounter(data.count);
+            }
+          })
+          .catch(() => {
+            // Fallback: use localStorage counter
+            let count = parseInt(localStorage.getItem('keizen_visits') || '0') + 1;
+            localStorage.setItem('keizen_visits', count.toString());
+            this.animateCounter(count);
+          });
+      },
+
       methods: {
         getRoleColor(role) {
           const map = { 'Leader': '#ffd700', 'Co-Leader': '#5865F2', 'Elder': '#4CAF50', 'Member': '#546E7A' };
           return map[role] || '#546E7A';
+        },
+        animateCounter(target) {
+          const duration = 1500;
+          const start = 0;
+          const startTime = performance.now();
+          const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            this.visitorCount = Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
+            else this.visitorCount = target;
+          };
+          requestAnimationFrame(step);
         }
       }
     }).use(vuetify).mount('#app');
