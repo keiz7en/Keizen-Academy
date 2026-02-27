@@ -294,8 +294,6 @@
     }
     @media (max-width: 600px) {
       .hide-mobile { display: none; }
-      .members-table { font-size: 0.8rem; }
-      .members-table thead th, .members-table tbody td { padding: 8px 10px; }
     }
 
     /* ─────────────────── JOIN SECTION ────────────────────── */
@@ -412,15 +410,115 @@
     }
 
     /* ─────────────────── RESPONSIVE ──────────────────────── */
+
+    .join-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
+    .join-section { padding: 5rem 0; }
+
     @media (max-width: 600px) {
-      .hero-title { letter-spacing: 0; }
-      .stat-number { font-size: 2rem; }
-      .hero-gallery { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .hero-card { padding: 1.25rem 1rem; }
-      .hero-emoji { font-size: 2.5rem; }
-      .hero-img { width: 90px; height: 90px; }
-      .discord-float { bottom: 16px; right: 16px; }
-      .clan-profile-showcase { margin: 0 auto 2rem; border-radius: 10px; }
+      /* Hero banner */
+      .hero-banner { min-height: 85vh; padding-top: 60px; }
+      .hero-content { padding: 0.75rem; }
+      .hero-title { letter-spacing: 0; font-size: 2rem !important; line-height: 1.2; }
+      .hero-tag { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+      .hero-badges { gap: 0.4rem; margin-bottom: 1.2rem; }
+      .hero-badges .v-chip { font-size: 0.65rem !important; height: 26px !important; }
+
+      /* Hero CTA buttons */
+      .hero-content .v-btn { min-width: 130px !important; }
+
+      /* Sections */
+      section { padding: 3rem 0; }
+      .section-title { font-size: 1.4rem !important; padding: 0 0.5rem; }
+      .section-subtitle { font-size: 0.85rem; margin-bottom: 1.5rem; padding: 0 0.5rem; }
+      .section-divider { margin: 0 auto 1.5rem; }
+
+      /* Stats */
+      .stat-card { padding: 1rem 0.5rem; }
+      .stat-number { font-size: 1.6rem; }
+      .stat-label { font-size: 0.75rem; }
+
+      /* War performance card */
+      .war-stat-value { font-size: 0.95rem !important; }
+      .war-stat-label { font-size: 0.6rem !important; }
+
+      /* Info cards */
+      .info-card { padding: 1rem !important; }
+      .info-card .v-icon { font-size: 22px !important; }
+
+      /* Leader cards */
+      .leader-card { padding: 1.25rem !important; }
+      .leader-card.featured { padding: 1.5rem !important; }
+      .leader-avatar { width: 60px; height: 60px; font-size: 1.5rem; }
+
+      /* Heroes gallery */
+      .hero-gallery { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .hero-card { padding: 1rem 0.75rem; border-radius: 12px; }
+      .hero-card h3 { font-size: 0.85rem; }
+      .hero-card p { font-size: 0.65rem; line-height: 1.4; }
+      .hero-img { width: 80px; height: 80px; margin-bottom: 0.5rem; }
+      .hero-emoji-fallback { font-size: 2.2rem; }
+
+      /* Clan profile screenshot */
+      .clan-profile-showcase { margin: 0 auto 1.5rem; border-radius: 10px; border-width: 1px; }
+      .clan-profile-label { font-size: 0.6rem; padding: 0.3rem 0.6rem; }
+      .profile-overlay { padding: 0.75rem !important; }
+
+      /* Rules */
+      .rules-panel { margin-bottom: 0.25rem !important; }
+
+      /* Members table */
+      .members-table { font-size: 0.75rem; }
+      .members-table thead th { padding: 8px 6px; font-size: 0.65rem; letter-spacing: 0; }
+      .members-table tbody td { padding: 7px 6px; }
+      .role-badge { font-size: 0.6rem; padding: 2px 6px; }
+
+      /* Join section */
+      .join-section { padding: 3rem 0 !important; }
+      .join-card { padding: 1.5rem !important; }
+      .join-card .heading { font-size: 1.1rem !important; }
+      .join-card .v-btn { height: 44px !important; }
+      .join-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+      /* Floating Discord */
+      .discord-float { bottom: 14px; right: 14px; }
+      .discord-float .v-btn { height: 40px !important; padding: 0 14px !important; font-size: 0.75rem !important; }
+
+      /* Orbs smaller on mobile */
+      .orb-1 { width: 200px; height: 200px; }
+      .orb-2 { width: 180px; height: 180px; }
+      .orb-3 { width: 150px; height: 150px; }
+
+      /* Footer */
+      .v-footer { padding: 1.5rem !important; }
+
+      /* App bar */
+      .v-toolbar-title span { font-size: 1rem !important; letter-spacing: 1px !important; }
+
+      /* Members search */
+      .v-text-field { max-width: 100% !important; }
+    }
+
+    /* Very small screens */
+    @media (max-width: 380px) {
+      .hero-title { font-size: 1.6rem !important; }
+      .hero-tag { font-size: 0.8rem; }
+      .hero-badges .v-chip { font-size: 0.6rem !important; height: 24px !important; }
+      .hero-gallery { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+      .hero-card h3 { font-size: 0.75rem; }
+      .hero-img { width: 65px; height: 65px; }
+      .stat-number { font-size: 1.3rem; }
+      .section-title { font-size: 1.2rem !important; }
+      .join-emoji { font-size: 2rem; }
+      .leader-card { padding: 1rem !important; }
+    }
+
+    /* Tablet tweaks */
+    @media (min-width: 601px) and (max-width: 960px) {
+      .hero-title { font-size: 2.8rem !important; }
+      .hero-gallery { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .hero-img { width: 110px; height: 110px; }
+      section { padding: 4rem 0; }
+      .leader-avatar { width: 70px; height: 70px; }
     }
   </style>
 </head>
@@ -505,8 +603,8 @@
             <!-- War Stats Bar -->
             <v-row justify="center" class="mt-4">
               <v-col cols="12" md="8">
-                <v-card class="pa-5 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1)">
-                  <div class="d-flex align-center justify-space-between mb-3">
+                <v-card class="pa-4 pa-md-5 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1)">
+                  <div class="d-flex align-center justify-space-between mb-3 flex-wrap" style="gap:0.5rem">
                     <div class="d-flex align-center">
                       <v-icon color="#ffd700" class="mr-2">mdi-sword-cross</v-icon>
                       <span class="heading gold-text" style="font-size:1rem;letter-spacing:1px">WAR PERFORMANCE</span>
@@ -515,15 +613,15 @@
                   </div>
                   <v-progress-linear :model-value="avgWarStarsPercent" color="#ffd700" bg-color="rgba(255,255,255,0.05)" height="12" rounded></v-progress-linear>
                   <v-row class="mt-3">
-                    <v-col cols="4" class="text-center">
+                    <v-col cols="12" sm="4" class="text-center">
                       <div style="color:#ffd700;font-weight:700;font-size:1.1rem">{{ avgWarStars }}</div>
                       <div style="color:#666;font-size:0.7rem">Avg Stars/Member</div>
                     </v-col>
-                    <v-col cols="4" class="text-center">
+                    <v-col cols="12" sm="4" class="text-center">
                       <div style="color:#f44336;font-weight:700;font-size:1.1rem">{{ topWarrior.warStars.toLocaleString() }}</div>
                       <div style="color:#666;font-size:0.7rem">Top: {{ topWarrior.name }}</div>
                     </v-col>
-                    <v-col cols="4" class="text-center">
+                    <v-col cols="12" sm="4" class="text-center">
                       <div style="color:#4CAF50;font-weight:700;font-size:1.1rem">{{ membersWithStars }}/{{ allMembers.length }}</div>
                       <div style="color:#666;font-size:0.7rem">Active Warriors</div>
                     </v-col>
@@ -724,7 +822,7 @@
         </section>
 
         <!-- =================== JOIN US =================== -->
-        <section id="join" class="join-section" style="padding:6rem 0">
+        <section id="join" class="join-section">
           <v-container>
             <h2 class="section-title">🤝 Join Keizen Academy</h2>
             <p class="section-subtitle">Become part of our growing international clan family</p>
@@ -733,8 +831,8 @@
             <v-row justify="center">
               <!-- Join Clan Card -->
               <v-col cols="12" sm="6" md="5">
-                <v-card class="join-card clan-card pa-8 rounded-xl" flat>
-                  <div style="font-size:3.5rem;margin-bottom:1rem">⚔️</div>
+                <v-card class="join-card clan-card pa-5 pa-sm-8 rounded-xl" flat>
+                  <div class="join-emoji">⚔️</div>
                   <h3 class="heading mb-2" style="color:var(--coc-green);font-size:1.3rem">Join the Clan</h3>
                   <p style="color:#888;font-size:0.9rem;margin-bottom:1.5rem">
                     Open Clash of Clans and join us directly. TH11+ required. Anyone can join!
@@ -749,8 +847,8 @@
 
               <!-- Join Discord Card -->
               <v-col cols="12" sm="6" md="5">
-                <v-card class="join-card discord-card pa-8 rounded-xl" flat>
-                  <div style="font-size:3.5rem;margin-bottom:1rem">💬</div>
+                <v-card class="join-card discord-card pa-5 pa-sm-8 rounded-xl" flat>
+                  <div class="join-emoji">💬</div>
                   <h3 class="heading mb-2" style="color:var(--discord);font-size:1.3rem">Join Discord</h3>
                   <p style="color:#888;font-size:0.9rem;margin-bottom:1.5rem">
                     Chat with us, get war strategies, and stay connected with the clan community!
@@ -765,7 +863,7 @@
             </v-row>
 
             <!-- Requirements Summary -->
-            <v-card class="mt-8 pa-6 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1);max-width:700px;margin-left:auto;margin-right:auto">
+            <v-card class="mt-6 pa-4 pa-sm-6 rounded-xl" color="#1c1c30" flat style="border:1px solid rgba(255,215,0,0.1);max-width:700px;margin-left:auto;margin-right:auto">
               <h4 class="heading gold-text text-center mb-4">📋 Requirements to Join</h4>
               <v-row>
                 <v-col cols="6" sm="3" class="text-center" v-for="req in requirements" :key="req.label">
