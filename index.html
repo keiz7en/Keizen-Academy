@@ -51,25 +51,46 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      background: linear-gradient(-45deg, #0a0a14, #1a1a2e, #0d2818, #1a0d2e);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
       overflow: hidden;
+      background: #0a0a14;
     }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      opacity: 0.25;
+      filter: saturate(0.7) brightness(0.6);
+      z-index: 0;
+      animation: heroZoom 25s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      0%   { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    /* Dark gradient overlays on top of image */
     .hero-banner::before {
       content: '';
       position: absolute;
       inset: 0;
+      z-index: 1;
       background:
-        radial-gradient(circle at 20% 50%, rgba(255,215,0,0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(92,184,92,0.06) 0%, transparent 50%),
-        radial-gradient(circle at 50% 80%, rgba(88,101,242,0.06) 0%, transparent 50%);
+        linear-gradient(180deg, rgba(10,10,20,0.85) 0%, rgba(10,10,20,0.4) 40%, rgba(10,10,20,0.6) 70%, rgba(10,10,20,0.95) 100%),
+        radial-gradient(ellipse at center, transparent 30%, rgba(10,10,20,0.7) 100%);
       pointer-events: none;
     }
-    @keyframes gradientShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,215,0,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(92,184,92,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(88,101,242,0.04) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     /* floating orbs */
@@ -77,7 +98,8 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(80px);
-      opacity: 0.15;
+      opacity: 0.12;
+      z-index: 2;
       animation: orbFloat 20s ease-in-out infinite alternate;
     }
     .orb-1 { width: 400px; height: 400px; background: var(--gold); top: -10%; left: -5%; }
@@ -88,7 +110,7 @@
       100% { transform: translate(40px, -30px) scale(1.15); }
     }
 
-    .hero-content { position: relative; z-index: 2; padding: 1rem; }
+    .hero-content { position: relative; z-index: 3; padding: 1rem; }
     .clan-badge {
       width: 120px; height: 120px;
       border-radius: 50%;
@@ -461,6 +483,7 @@
     @media (max-width: 600px) {
       /* Hero banner */
       .hero-banner { min-height: 85vh; padding-top: 60px; }
+      .hero-bg-img { object-position: 60% center; opacity: 0.2; }
       .hero-content { padding: 0.75rem; }
       .hero-title { letter-spacing: 0; font-size: 2rem !important; line-height: 1.2; }
       .hero-tag { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
@@ -609,6 +632,7 @@
       <v-main>
         <!-- =================== HERO BANNER =================== -->
         <div class="hero-banner" id="home">
+          <img src="assets/coc-banner.webp" alt="" class="hero-bg-img" loading="eager" />
           <div class="orb orb-1"></div>
           <div class="orb orb-2"></div>
           <div class="orb orb-3"></div>
